@@ -20,25 +20,26 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import HomeScreen from './screens/HomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navugation/stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import MapScreen from './screens/MapScreen';
 const App = () => {
 
-  const Stack = createStackNavigator();
+  const Stack = createNativeStackNavigator();
 
   return (
+    
     <Provider store={store}>
       <NavigationContainer>
         <SafeAreaProvider>
           <Stack.Navigator>
             <Stack.Screen
-              name="Home"
+              name="HomeScreen"
               component={HomeScreen}
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="Map"
+              name="MapScreen"
               component={MapScreen}
               options={{ headerShown: false }}
             />

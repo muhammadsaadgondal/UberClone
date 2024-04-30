@@ -1,6 +1,7 @@
-import { View, Text, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, StatusBar, SafeAreaView } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 const list = [
@@ -19,19 +20,23 @@ export default function HomeScreen() {
 
     return (
         <View>
-            <StatusBar barStyle={'dark-content'} />
+
             <Text>HomeScreen</Text>
-            <FlatList
-                data={list}
-                renderItem={(item) => {
+            <SafeAreaView>
 
-                    <TouchableOpacity
-                        onPress={() => navigate.navigate(item.screen)} >
-                        <Text>{item.name}</Text>
-                    </TouchableOpacity>
+                <FlatList
+                    data={list}
+                    renderItem={({ item }) => {
+                        return <TouchableOpacity style={{ padding: 10, margin: 10, backgroundColor: 'pink', width: '50%', alignItems: 'center', justifyContent: 'center', borderRadius: 10 }}
+                            onPress={() => navigate.navigate(item.screen)} >
+                            <View>
+                                <Text>{item.name}</Text>
+                            </View>
+                        </TouchableOpacity>
 
-                }}
-            ></FlatList>
+                    }}
+                />
+            </SafeAreaView>
         </View>
     )
 }

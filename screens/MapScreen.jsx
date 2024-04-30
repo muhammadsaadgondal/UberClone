@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function MapScreen() {
   return (
-    <View>
+    <View style={{backgroundColor:'green',height:100 }}>
       <Text>MapScreen</Text>
     </View>
   )
